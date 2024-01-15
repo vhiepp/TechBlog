@@ -1,0 +1,93 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Default.master.cs" Inherits="TechBlog.Pages.Default" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <link rel="stylesheet" href="/assets/admin/vendor/fonts/boxicons.css" />
+    <link rel="stylesheet" href="/assets/admin/vendor/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="/assets/admin/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="/assets/admin/css/demo.css" />
+    <link rel="stylesheet" href="/assets/admin/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="/assets/admin/vendor/libs/apex-charts/apex-charts.css" />
+
+    <script src="/assets/admin/vendor/js/helpers.js"></script>
+    <script src="/assets/admin/js/config.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <header>
+                <div class="left">
+                    <span class="trademark">TECH BLOG</span>
+                </div>
+                <div class="right">
+                    <a href="/">TRANG CHỦ</a>
+                    <a href="/viet-bai">VIẾT BÀI</a>
+                    <%=
+                        Session["user"] != null ?
+                        $"<a class=\"nav-link dropdown-toggle hide-arrow show\" href=\"javascript:void(0);\" data-bs-toggle=\"dropdown\" aria-expanded=\"true\">" +
+                        $"<div class=\"avatar avatar-online\">" +
+                        $"<img src=\"{((TechBlog.Models.User)Session["user"]).Avatar}\" alt=\"\" class=\"w-px-40 h-auto rounded-circle\">" +
+                        $"</div></a>" +
+                        $"<ul class=\"dropdown-menu dropdown-menu-end\">" +
+                        $"<li><a class=\"dropdown-item\" href=\"#\">" +
+                        $"<div class=\"d-flex\">" +
+                        $"<div class=\"flex-shrink-0 me-3\">" +
+                        $"<div class=\"avatar avatar-online\">" +
+                        $"<img src=\"{((TechBlog.Models.User)Session["user"]).Avatar}\" alt=\"\" class=\"w-px-40 h-auto rounded-circle\">" +
+                        $"</div></div><div class=\"flex-grow-1\">" +
+                        $"<span class=\"fw-medium d-block\"  style=\"color: #697a8d;\" >{((TechBlog.Models.User)Session["user"]).FullName}</span>" +
+                        $"<small class=\"text-muted\">{((TechBlog.Models.User)Session["user"]).Role}</small></div></div></a></li>" +
+                        $"<li><div class=\"dropdown-divider\"></div></li>" +
+                        $"<li><a style=\"color: #697a8d;\" class=\"dropdown-item\" href=\"#\">" +
+                        $"<i class=\"bx bx-user me-2\"></i>" +
+                        $"<span class=\"align-middle\">My Profile</span>" +
+                        $"</a></li>" +
+                        (((TechBlog.Models.User)Session["user"]).Role == "admin" ? $"<li><a style=\"color: #697a8d;\" class=\"dropdown-item\" href=\"/quan-tri\">" +
+                            $"<i class='bx bx-sidebar me-2'></i>" +
+                            $"<span class=\"align-middle\">Quản trị</span>" +
+                            $"</a></li>" : "") +
+                        $"<li><div class=\"dropdown-divider\"></div></li><li>" +
+                        $"<a class=\"dropdown-item\" style=\"color: #697a8d;\" href=\"/dang-xuat\"><i class=\"bx bx-power-off me-2\"></i>" +
+                        $"<span class=\"align-middle\">Log Out</span></a></li></ul>" : "<a href=\"/dang-nhap\">ĐĂNG NHẬP</a>"
+                    %>
+                </div>
+            </header>
+            <div class="container">
+                <div class="content">
+                    <div class="content_left">
+                        <asp:ContentPlaceHolder ID="Content" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                    <div class="content_right">
+                        <h4 class="title">DANH MỤC</h4>
+                        <div class="menu" runat="server" id="categoryList"> 
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer>
+                <h2 class="text-white">TECH BLOG</h2>
+                <span>Tương lai đến từ hôm nay</span>
+            </footer>
+        </div>
+    </form>
+    <script src="/assets/admin/vendor/libs/jquery/jquery.js"></script>
+    <script src="/assets/admin/vendor/libs/popper/popper.js"></script>
+    <script src="/assets/admin/vendor/js/bootstrap.js"></script>
+    <script src="/assets/admin/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="/assets/admin/vendor/js/menu.js"></script>
+
+    <script src="/assets/admin/vendor/libs/apex-charts/apexcharts.js"></script>
+
+    <script src="/assets/admin/js/main.js"></script>
+
+    <script src="/assets/admin/js/dashboards-analytics.js"></script>
+
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+</body>
+</html>

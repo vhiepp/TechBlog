@@ -1,0 +1,477 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.19.4\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.props" Condition="Exists('..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.19.4\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{657B07EE-1B03-4DB4-8C3B-E7C9C01B72EE}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TechBlog</RootNamespace>
+    <AssemblyName>TechBlog</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44340</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
+    <DockerLaunchUrl>http://{ServiceIPAddress}</DockerLaunchUrl>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BCrypt.Net, Version=0.1.4141.31969, Culture=neutral, PublicKeyToken=f3bc8f8c31beeb49, processorArchitecture=MSIL">
+      <HintPath>..\packages\BCrypt.Net.0.1.0\lib\net35\BCrypt.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.IO" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Runtime" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.Cryptography.Algorithms" />
+    <Reference Include="System.Security.Cryptography.Encoding" />
+    <Reference Include="System.Security.Cryptography.Primitives" />
+    <Reference Include="System.Security.Cryptography.X509Certificates" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\admin\css\demo.css" />
+    <Content Include="assets\admin\img\avatars\1.png" />
+    <Content Include="assets\admin\img\avatars\5.png" />
+    <Content Include="assets\admin\img\avatars\6.png" />
+    <Content Include="assets\admin\img\avatars\7.png" />
+    <Content Include="assets\admin\img\backgrounds\18.jpg" />
+    <Content Include="assets\admin\img\elements\1.jpg" />
+    <Content Include="assets\admin\img\elements\11.jpg" />
+    <Content Include="assets\admin\img\elements\12.jpg" />
+    <Content Include="assets\admin\img\elements\13.jpg" />
+    <Content Include="assets\admin\img\elements\17.jpg" />
+    <Content Include="assets\admin\img\elements\18.jpg" />
+    <Content Include="assets\admin\img\elements\19.jpg" />
+    <Content Include="assets\admin\img\elements\2.jpg" />
+    <Content Include="assets\admin\img\elements\20.jpg" />
+    <Content Include="assets\admin\img\elements\3.jpg" />
+    <Content Include="assets\admin\img\elements\4.jpg" />
+    <Content Include="assets\admin\img\elements\5.jpg" />
+    <Content Include="assets\admin\img\elements\7.jpg" />
+    <Content Include="assets\admin\img\favicon\favicon.ico" />
+    <Content Include="assets\admin\img\icons\brands\asana.png" />
+    <Content Include="assets\admin\img\icons\brands\behance.png" />
+    <Content Include="assets\admin\img\icons\brands\dribbble.png" />
+    <Content Include="assets\admin\img\icons\brands\facebook.png" />
+    <Content Include="assets\admin\img\icons\brands\github.png" />
+    <Content Include="assets\admin\img\icons\brands\google.png" />
+    <Content Include="assets\admin\img\icons\brands\instagram.png" />
+    <Content Include="assets\admin\img\icons\brands\mailchimp.png" />
+    <Content Include="assets\admin\img\icons\brands\slack.png" />
+    <Content Include="assets\admin\img\icons\brands\twitter.png" />
+    <Content Include="assets\admin\img\icons\unicons\cc-primary.png" />
+    <Content Include="assets\admin\img\icons\unicons\cc-success.png" />
+    <Content Include="assets\admin\img\icons\unicons\cc-warning.png" />
+    <Content Include="assets\admin\img\icons\unicons\chart-success.png" />
+    <Content Include="assets\admin\img\icons\unicons\chart.png" />
+    <Content Include="assets\admin\img\icons\unicons\paypal.png" />
+    <Content Include="assets\admin\img\icons\unicons\wallet-info.png" />
+    <Content Include="assets\admin\img\icons\unicons\wallet.png" />
+    <Content Include="assets\admin\img\illustrations\girl-doing-yoga-light.png" />
+    <Content Include="assets\admin\img\illustrations\man-with-laptop-light.png" />
+    <Content Include="assets\admin\img\illustrations\page-misc-error-light.png" />
+    <Content Include="assets\admin\img\layouts\layout-container-light.png" />
+    <Content Include="assets\admin\img\layouts\layout-fluid-light.png" />
+    <Content Include="assets\admin\img\layouts\layout-without-menu-light.png" />
+    <Content Include="assets\admin\img\layouts\layout-without-navbar-light.png" />
+    <Content Include="assets\admin\js\config.js" />
+    <Content Include="assets\admin\js\dashboards-analytics.js" />
+    <Content Include="assets\admin\js\extended-ui-perfect-scrollbar.js" />
+    <Content Include="assets\admin\js\form-basic-inputs.js" />
+    <Content Include="assets\admin\js\main.js" />
+    <Content Include="assets\admin\js\pages-account-settings-account.js" />
+    <Content Include="assets\admin\js\ui-modals.js" />
+    <Content Include="assets\admin\js\ui-popover.js" />
+    <Content Include="assets\admin\js\ui-toasts.js" />
+    <Content Include="assets\admin\vendor\css\core.css" />
+    <Content Include="assets\admin\vendor\css\pages\page-account-settings.css" />
+    <Content Include="assets\admin\vendor\css\pages\page-auth.css" />
+    <Content Include="assets\admin\vendor\css\pages\page-icons.css" />
+    <Content Include="assets\admin\vendor\css\pages\page-misc.css" />
+    <Content Include="assets\admin\vendor\css\theme-default.css" />
+    <Content Include="assets\admin\vendor\fonts\boxicons.css" />
+    <Content Include="assets\admin\vendor\fonts\boxicons\boxicons.svg" />
+    <Content Include="assets\admin\vendor\js\bootstrap.js" />
+    <Content Include="assets\admin\vendor\js\helpers.js" />
+    <Content Include="assets\admin\vendor\js\menu.js" />
+    <Content Include="assets\admin\vendor\libs\apex-charts\apex-charts.css" />
+    <Content Include="assets\admin\vendor\libs\apex-charts\apexcharts.js" />
+    <Content Include="assets\admin\vendor\libs\highlight\highlight-github.css" />
+    <Content Include="assets\admin\vendor\libs\highlight\highlight.css" />
+    <Content Include="assets\admin\vendor\libs\highlight\highlight.js" />
+    <Content Include="assets\admin\vendor\libs\jquery\jquery.js" />
+    <Content Include="assets\admin\vendor\libs\masonry\masonry.js" />
+    <Content Include="assets\admin\vendor\libs\perfect-scrollbar\perfect-scrollbar.css" />
+    <Content Include="assets\admin\vendor\libs\perfect-scrollbar\perfect-scrollbar.js" />
+    <Content Include="assets\admin\vendor\libs\popper\popper.js" />
+    <Content Include="assets\background\background.png" />
+    <Content Include="assets\ckeditor5\ckeditor.js" />
+    <Content Include="assets\ckeditor5\index.html" />
+    <Content Include="assets\ckeditor5\sample\css\sample.css" />
+    <Content Include="assets\ckeditor5\sample\img\bg.png" />
+    <Content Include="assets\ckeditor5\sample\img\github.svg" />
+    <Content Include="assets\ckeditor5\sample\img\logo.svg" />
+    <Content Include="assets\ckeditor5\sample\img\umbrellas.jpg" />
+    <Content Include="assets\ckeditor5\translations\af.js" />
+    <Content Include="assets\ckeditor5\translations\ar.js" />
+    <Content Include="assets\ckeditor5\translations\ast.js" />
+    <Content Include="assets\ckeditor5\translations\az.js" />
+    <Content Include="assets\ckeditor5\translations\bg.js" />
+    <Content Include="assets\ckeditor5\translations\bn.js" />
+    <Content Include="assets\ckeditor5\translations\bs.js" />
+    <Content Include="assets\ckeditor5\translations\ca.js" />
+    <Content Include="assets\ckeditor5\translations\cs.js" />
+    <Content Include="assets\ckeditor5\translations\da.js" />
+    <Content Include="assets\ckeditor5\translations\de-ch.js" />
+    <Content Include="assets\ckeditor5\translations\de.js" />
+    <Content Include="assets\ckeditor5\translations\el.js" />
+    <Content Include="assets\ckeditor5\translations\en-au.js" />
+    <Content Include="assets\ckeditor5\translations\en-gb.js" />
+    <Content Include="assets\ckeditor5\translations\eo.js" />
+    <Content Include="assets\ckeditor5\translations\es-co.js" />
+    <Content Include="assets\ckeditor5\translations\es.js" />
+    <Content Include="assets\ckeditor5\translations\et.js" />
+    <Content Include="assets\ckeditor5\translations\eu.js" />
+    <Content Include="assets\ckeditor5\translations\fa.js" />
+    <Content Include="assets\ckeditor5\translations\fi.js" />
+    <Content Include="assets\ckeditor5\translations\fr.js" />
+    <Content Include="assets\ckeditor5\translations\gl.js" />
+    <Content Include="assets\ckeditor5\translations\gu.js" />
+    <Content Include="assets\ckeditor5\translations\he.js" />
+    <Content Include="assets\ckeditor5\translations\hi.js" />
+    <Content Include="assets\ckeditor5\translations\hr.js" />
+    <Content Include="assets\ckeditor5\translations\hu.js" />
+    <Content Include="assets\ckeditor5\translations\hy.js" />
+    <Content Include="assets\ckeditor5\translations\id.js" />
+    <Content Include="assets\ckeditor5\translations\it.js" />
+    <Content Include="assets\ckeditor5\translations\ja.js" />
+    <Content Include="assets\ckeditor5\translations\jv.js" />
+    <Content Include="assets\ckeditor5\translations\km.js" />
+    <Content Include="assets\ckeditor5\translations\kn.js" />
+    <Content Include="assets\ckeditor5\translations\ko.js" />
+    <Content Include="assets\ckeditor5\translations\ku.js" />
+    <Content Include="assets\ckeditor5\translations\lt.js" />
+    <Content Include="assets\ckeditor5\translations\lv.js" />
+    <Content Include="assets\ckeditor5\translations\ms.js" />
+    <Content Include="assets\ckeditor5\translations\nb.js" />
+    <Content Include="assets\ckeditor5\translations\ne.js" />
+    <Content Include="assets\ckeditor5\translations\nl.js" />
+    <Content Include="assets\ckeditor5\translations\no.js" />
+    <Content Include="assets\ckeditor5\translations\oc.js" />
+    <Content Include="assets\ckeditor5\translations\pl.js" />
+    <Content Include="assets\ckeditor5\translations\pt-br.js" />
+    <Content Include="assets\ckeditor5\translations\pt.js" />
+    <Content Include="assets\ckeditor5\translations\ro.js" />
+    <Content Include="assets\ckeditor5\translations\ru.js" />
+    <Content Include="assets\ckeditor5\translations\si.js" />
+    <Content Include="assets\ckeditor5\translations\sk.js" />
+    <Content Include="assets\ckeditor5\translations\sl.js" />
+    <Content Include="assets\ckeditor5\translations\sq.js" />
+    <Content Include="assets\ckeditor5\translations\sr-latn.js" />
+    <Content Include="assets\ckeditor5\translations\sr.js" />
+    <Content Include="assets\ckeditor5\translations\sv.js" />
+    <Content Include="assets\ckeditor5\translations\th.js" />
+    <Content Include="assets\ckeditor5\translations\tk.js" />
+    <Content Include="assets\ckeditor5\translations\tr.js" />
+    <Content Include="assets\ckeditor5\translations\tt.js" />
+    <Content Include="assets\ckeditor5\translations\ug.js" />
+    <Content Include="assets\ckeditor5\translations\uk.js" />
+    <Content Include="assets\ckeditor5\translations\ur.js" />
+    <Content Include="assets\ckeditor5\translations\uz.js" />
+    <Content Include="assets\ckeditor5\translations\vi.js" />
+    <Content Include="assets\ckeditor5\translations\zh-cn.js" />
+    <Content Include="assets\ckeditor5\translations\zh.js" />
+    <Content Include="assets\css\ck-style.css" />
+    <Content Include="assets\css\home.css" />
+    <Content Include="assets\css\posts-add.css" />
+    <Content Include="assets\css\posts-detail.css" />
+    <Content Include="assets\css\sign-in.css" />
+    <Content Include="assets\css\sign-up.css" />
+    <Content Include="assets\footer\footer.png" />
+    <Content Include="Global.asax" />
+    <Content Include="Pages\Admin\Categories\CategoryDelete.aspx" />
+    <Content Include="Pages\Admin\Categories\CategoryList.aspx" />
+    <Content Include="Pages\Admin\Dashboard.aspx" />
+    <Content Include="Pages\Admin\Posts\PostAdd.aspx" />
+    <Content Include="Pages\Admin\Posts\PostApprove.aspx" />
+    <Content Include="Pages\Admin\Posts\PostDelete.aspx" />
+    <Content Include="Pages\Admin\Posts\PostDetail.aspx" />
+    <Content Include="Pages\Admin\Posts\PostEdit.aspx" />
+    <Content Include="Pages\Admin\Posts\PostList.aspx" />
+    <Content Include="Pages\Home.aspx" />
+    <Content Include="Pages\PostAdd.aspx" />
+    <Content Include="Pages\PostDetail.aspx" />
+    <Content Include="Pages\SignIn.aspx" />
+    <Content Include="Pages\SignOut.aspx" />
+    <Content Include="Pages\SignUp.aspx" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ConnectDatabase.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Pages\Admin\Admin.Master.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Admin\Admin.Master.designer.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Admin\Categories\CategoryDelete.aspx.cs">
+      <DependentUpon>CategoryDelete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Admin\Categories\CategoryDelete.aspx.designer.cs">
+      <DependentUpon>CategoryDelete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Admin\Categories\CategoryList.aspx.cs">
+      <DependentUpon>CategoryList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Admin\Categories\CategoryList.aspx.designer.cs">
+      <DependentUpon>CategoryList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Admin\Dashboard.aspx.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Admin\Dashboard.aspx.designer.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Admin\Posts\PostAdd.aspx.cs">
+      <DependentUpon>PostAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Admin\Posts\PostAdd.aspx.designer.cs">
+      <DependentUpon>PostAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Admin\Posts\PostApprove.aspx.cs">
+      <DependentUpon>PostApprove.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Admin\Posts\PostApprove.aspx.designer.cs">
+      <DependentUpon>PostApprove.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Admin\Posts\PostDelete.aspx.cs">
+      <DependentUpon>PostDelete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Admin\Posts\PostDelete.aspx.designer.cs">
+      <DependentUpon>PostDelete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Admin\Posts\PostDetail.aspx.cs">
+      <DependentUpon>PostDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Admin\Posts\PostDetail.aspx.designer.cs">
+      <DependentUpon>PostDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Admin\Posts\PostEdit.aspx.cs">
+      <DependentUpon>PostEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Admin\Posts\PostEdit.aspx.designer.cs">
+      <DependentUpon>PostEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Admin\Posts\PostList.aspx.cs">
+      <DependentUpon>PostList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Admin\Posts\PostList.aspx.designer.cs">
+      <DependentUpon>PostList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Default.Master.cs">
+      <DependentUpon>Default.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Default.Master.designer.cs">
+      <DependentUpon>Default.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PostAdd.aspx.cs">
+      <DependentUpon>PostAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\PostAdd.aspx.designer.cs">
+      <DependentUpon>PostAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PostDetail.aspx.cs">
+      <DependentUpon>PostDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\PostDetail.aspx.designer.cs">
+      <DependentUpon>PostDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SignIn.aspx.cs">
+      <DependentUpon>SignIn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\SignIn.aspx.designer.cs">
+      <DependentUpon>SignIn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SignOut.aspx.cs">
+      <DependentUpon>SignOut.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\SignOut.aspx.designer.cs">
+      <DependentUpon>SignOut.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SignUp.aspx.cs">
+      <DependentUpon>SignUp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\SignUp.aspx.designer.cs">
+      <DependentUpon>SignUp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\WithOutCategory.Master.cs">
+      <DependentUpon>WithOutCategory.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\WithOutCategory.Master.designer.cs">
+      <DependentUpon>WithOutCategory.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\admin\vendor\fonts\boxicons\boxicons.eot" />
+    <Content Include="assets\admin\vendor\fonts\boxicons\boxicons.ttf" />
+    <Content Include="assets\admin\vendor\fonts\boxicons\boxicons.woff" />
+    <Content Include="assets\admin\vendor\fonts\boxicons\boxicons.woff2" />
+    <Content Include="assets\ckeditor5\ckeditor.js.map" />
+    <Content Include="assets\ckeditor5\LICENSE.md" />
+    <Content Include="assets\ckeditor5\README.md" />
+    <None Include="Dockerfile" />
+    <None Include=".dockerignore">
+      <DependentUpon>Dockerfile</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <Content Include="Pages\Admin\Admin.Master" />
+    <Content Include="Pages\Default.Master" />
+    <Content Include="Pages\WithOutCategory.Master" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Images\" />
+    <Folder Include="Pages\Admin\Users\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="assets\ckeditor5\ckeditor.d.ts" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>58945</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44340/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.19.4\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.19.4\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.19.4\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.19.4\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.targets'))" />
+  </Target>
+  <Import Project="..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.19.4\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.targets" Condition="Exists('..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.19.4\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
