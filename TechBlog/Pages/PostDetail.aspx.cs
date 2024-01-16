@@ -29,7 +29,7 @@ namespace TechBlog.Pages
                     txtComment.Attributes["placeholder"] = "Đăng nhập để bình luận";
                     txtComment.Attributes["disabled"] = "disabled";
                     btnComment.InnerText = "Đăng nhập";
-                    btnComment.Attributes["onclick"] = "window.location.href='/dang-nhap'";
+                    btnComment.Attributes["onclick"] = $"window.location.href='/dang-nhap?continue=/bai-viet/{RouteData.Values["slug"]}&tag=comments'";
                     btnComment.Attributes["type"] = "button";
                 }
             } else
@@ -51,18 +51,21 @@ namespace TechBlog.Pages
 
         void RenderPostDetailWithSlug(string slug)
         {
-            string sql = $"SELECT TOP 1 posts.*, users.fullname, users.avatar, categories.name AS category_name, FORMAT(posts.updated_at, 'dd') AS updated_D, FORMAT(posts.updated_at, 'MM, yyyy') AS updated_MY FROM posts JOIN users ON posts.author_id = users.id JOIN categories ON categories.id = posts.category_id WHERE posts.status=1 AND posts.slug='{slug}'";
+            string sql = $"SELECT TOP 1 posts.*, users.fullname, users.avatar, categories.name AS category_name, FORMAT(posts.updated_at, 'dd') AS updated_D, FORMAT(posts.updated_at, 'MM, yyyy') AS updated_MY FROM posts JOIN users ON posts.author_id = users.id JOIN categories ON categories.id = posts.category_id WHERE posts.slug='{slug}'";
             DataTable dt = connectDatabase.GetData(sql);
             if (dt != null && dt.Rows.Count > 0)
             {
                 DataRow dr = dt.Rows[0];
-                pageTitle.InnerText = $"{dr["title"]} | Tech Blog";
-                title.InnerText = dr["title"].ToString();
-                author.InnerText = $"{dr["fullname"]} | {dr["updated_D"]} THG {dr["updated_MY"]}";
-                category.InnerText = $"#{dr["category_name"]}";
-                content.InnerHtml = dr["content"].ToString();
-                RenderCommentListWithPostId(dr["id"].ToString());
-                Session["post_id"] = dr["id"].ToString();
+                if (dr["status"].ToString() == "1" || (Session["user"] != null && dr["author_id"].ToString() == ((User)Session["user"]).Id.ToString()))
+                {
+                    pageTitle.InnerText = $"{dr["title"]} | Tech Blog";
+                    title.InnerText = dr["title"].ToString();
+                    author.InnerText = $"{dr["fullname"]} | {dr["updated_D"]} THG {dr["updated_MY"]}";
+                    category.InnerText = $"#{dr["category_name"]}";
+                    content.InnerHtml = dr["content"].ToString();
+                    RenderCommentListWithPostId(dr["id"].ToString());
+                    Session["post_id"] = dr["id"].ToString();
+                }
             }
         }
 
@@ -85,7 +88,10 @@ namespace TechBlog.Pages
                         "</div><div class=\"comment-content\">" +
                         $"<p>{dr["content"]}</p></div></div></div>";
                 }
-                commentList.InnerHtml = html;
+                if (html.Length > 0)
+                {
+                    commentList.InnerHtml = html;
+                }
             }
         }
 

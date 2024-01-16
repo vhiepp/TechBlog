@@ -55,7 +55,7 @@ namespace TechBlog.Pages.Admin.Posts
                     "<div class=\"dropdown\">" +
                     "<button type=\"button\" class=\"btn p-0 dropdown-toggle hide-arrow\" data-bs-toggle=\"dropdown\">" +
                     "<i class=\"bx bx-dots-vertical-rounded\"></i></button>" +
-                    "<div class=\"dropdown-menu\"><a class=\"dropdown-item\" href=\"javascript:void(0);\"" +
+                    $"<div class=\"dropdown-menu\"><a class=\"dropdown-item\" href=\"/quan-tri/bai-viet/{dr["slug"]}/edit\"" +
                     $"><i class=\"bx bx-edit-alt me-1\"></i> Edit</a><a class=\"dropdown-item\" style='cursor: pointer;' data-bs-toggle=\"modal\" data-bs-target=\"#deletePostModal\" onclick='handleDeletePostClick(\"{dr["slug"]}\")'><i class=\"bx bx-trash me-1\"></i> Xóa</a>" +
                     $"<a class=\"dropdown-item\" style='cursor: pointer;' data-bs-toggle=\"modal\" data-bs-target=\"#approvePostModal\" onclick='handleApprovePostClick(\"{dr["slug"]}\")'><i class=\"bx bx-check me-1\"></i> Duyệt</a>" +
                     "</div></div>" +
@@ -96,7 +96,7 @@ namespace TechBlog.Pages.Admin.Posts
                     "<div class=\"dropdown\">" +
                     "<button type=\"button\" class=\"btn p-0 dropdown-toggle hide-arrow\" data-bs-toggle=\"dropdown\">" +
                     "<i class=\"bx bx-dots-vertical-rounded\"></i></button>" +
-                    "<div class=\"dropdown-menu\"><a class=\"dropdown-item\" href=\"javascript:void(0);\"" +
+                    $"<div class=\"dropdown-menu\"><a class=\"dropdown-item\" href=\"/quan-tri/bai-viet/{dr["slug"]}/edit\"" +
                     $"><i class=\"bx bx-edit-alt me-1\"></i> Edit</a><a class=\"dropdown-item\" style='cursor: pointer;' data-bs-toggle=\"modal\" data-bs-target=\"#deletePostModal\" onclick='handleDeletePostClick(\"{dr["slug"]}\")'><i class=\"bx bx-trash me-1\"></i> Xóa</a>" +
                     "</div></div>" +
                     "</td></tr>";

@@ -11,7 +11,7 @@ namespace TechBlog.Pages.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Response.Redirect("/quan-tri/danh-muc");
         }
     }
 }

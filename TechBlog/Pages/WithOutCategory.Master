@@ -17,6 +17,14 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
+    <style>
+        header {
+            padding: 10px 40px;
+        }
+        header .right {
+            min-height: 40px;
+        }
+    </style>
     <form id="form1" runat="server">
         <div>
             <header>
@@ -42,9 +50,9 @@
                         $"<span class=\"fw-medium d-block\"  style=\"color: #697a8d;\" >{((TechBlog.Models.User)Session["user"]).FullName}</span>" +
                         $"<small class=\"text-muted\">{((TechBlog.Models.User)Session["user"]).Role}</small></div></div></a></li>" +
                         $"<li><div class=\"dropdown-divider\"></div></li>" +
-                        $"<li><a style=\"color: #697a8d;\" class=\"dropdown-item\" href=\"#\">" +
+                        $"<li><a style=\"color: #697a8d;\" class=\"dropdown-item\" href=\"/ho-so-ca-nhan\">" +
                         $"<i class=\"bx bx-user me-2\"></i>" +
-                        $"<span class=\"align-middle\">My Profile</span>" +
+                        $"<span class=\"align-middle\">Profile</span>" +
                         $"</a></li>" +
                         (((TechBlog.Models.User)Session["user"]).Role == "admin" ? $"<li><a style=\"color: #697a8d;\" class=\"dropdown-item\" href=\"/quan-tri\">" +
                             $"<i class='bx bx-sidebar me-2'></i>" +

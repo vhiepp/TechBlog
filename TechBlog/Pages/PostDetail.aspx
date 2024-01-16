@@ -25,6 +25,6 @@
         <button class="btn btn-primary" type="submit" runat="server" id="btnComment">Bình luận</button>
     </div>
     <div class="comment-list" runat="server" id="commentList">
-
+        <p class="text-muted text-center" style="font-size: 14px">Hãy là người bình luận đầu tiên cho bài viết này</p>
     </div>
 </asp:Content>

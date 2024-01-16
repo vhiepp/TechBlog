@@ -47,6 +47,12 @@ namespace TechBlog
             );
 
             RouteTable.Routes.MapPageRoute(
+                "Profile",
+                "ho-so-ca-nhan",
+                "~/Pages/Profile.aspx"
+            );
+
+            RouteTable.Routes.MapPageRoute(
                 "Post-Detail",
                 "bai-viet/{slug}",
                 "~/Pages/PostDetail.aspx"

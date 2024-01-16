@@ -40,11 +40,12 @@ namespace TechBlog.Pages
         {
             if (Session["user"] == null)
             {
-                Response.Redirect("/dang-nhap");
+                Response.Redirect("/dang-nhap?continue=/viet-bai");
             }
             if (IsPostBack && HandleCreateNewPost())
             {
-                Response.Redirect("/");
+                Session["create_post_success"] = true;
+                Response.Redirect("/ho-so-ca-nhan");
             }
             RenderDDLCategoryList();
         }
@@ -89,8 +90,7 @@ namespace TechBlog.Pages
                 }
                 else
                 {
-                    // Display an error message if the file type is not allowed
-                    Response.Write("Error: Only image files (jpg, jpeg, png, gif) are allowed.");
+                    return false;
                 }
                 string slug = GenerateSlug(title);
                 int id = 1;

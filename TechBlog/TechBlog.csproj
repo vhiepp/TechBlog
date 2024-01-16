@@ -244,6 +244,7 @@
     <Content Include="assets\css\home.css" />
     <Content Include="assets\css\posts-add.css" />
     <Content Include="assets\css\posts-detail.css" />
+    <Content Include="assets\css\profile.css" />
     <Content Include="assets\css\sign-in.css" />
     <Content Include="assets\css\sign-up.css" />
     <Content Include="assets\footer\footer.png" />
@@ -260,6 +261,7 @@
     <Content Include="Pages\Home.aspx" />
     <Content Include="Pages\PostAdd.aspx" />
     <Content Include="Pages\PostDetail.aspx" />
+    <Content Include="Pages\Profile.aspx" />
     <Content Include="Pages\SignIn.aspx" />
     <Content Include="Pages\SignOut.aspx" />
     <Content Include="Pages\SignUp.aspx" />
@@ -368,6 +370,13 @@
     </Compile>
     <Compile Include="Pages\PostDetail.aspx.designer.cs">
       <DependentUpon>PostDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Profile.aspx.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Profile.aspx.designer.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\SignIn.aspx.cs">
       <DependentUpon>SignIn.aspx</DependentUpon>

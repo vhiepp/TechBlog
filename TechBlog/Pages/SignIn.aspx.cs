@@ -47,7 +47,20 @@ namespace TechBlog.Pages
                     user.Email = data["email"].ToString();
                     user.Avatar = data["avatar"].ToString();
                     Session["user"] = user;
-                    Response.Redirect("/");
+
+                    if (Request.QueryString["continue"] != null)
+                    {
+                        string backUrl = Request.QueryString["continue"];
+                        if (Request.QueryString["tag"] != null)
+                        {
+                            backUrl += $"#{Request.QueryString["tag"]}";
+                        }
+                        Response.Redirect(backUrl);
+                    } else
+                    {
+                        Response.Redirect("/");
+                    }
+
                 } else
                 {
                     Session["wrong-username-or-password"] = true;
